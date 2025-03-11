@@ -1,0 +1,30 @@
+<h1>רשימת שעורים</h1>
+<span class="icon" (click)="AddLesson()">
+    <mat-icon color="primary">add</mat-icon>
+</span>
+
+@if(lessons.length > 0) {
+<mat-list>
+    @for(u of lessons; track u.title) {
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ u.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ u.content }} - תוכן השיעור</p>
+        </mat-card-content>
+        <div class="icon-buttons">
+            @if(role === "teacher") {
+            <span class="icon" (click)="delete(u.id)">
+                <mat-icon color="primary">delete</mat-icon>
+            </span>
+            <span class="icon" (click)="editCourse(u)">
+                <mat-icon color="primary">edit</mat-icon>
+            </span>
+            }
+        </div> <!-- סגירת div -->
+    </mat-card> <!-- סגירת mat-card -->
+    <mat-divider></mat-divider>
+    }
+</mat-list>
+}

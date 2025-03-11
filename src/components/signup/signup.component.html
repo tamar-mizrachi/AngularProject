@@ -1,0 +1,47 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h1>הרשמה</h1>
+    <div formGroupName="user">
+        <mat-form-field appearance="fill">
+            <mat-label>name</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error *ngIf="registerForm.get('user.name')?.hasError('required')">
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="registerForm.get('user.email')?.hasError('required')">
+                Email is required
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="input">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="show ? 'password' : 'text'" formControlName="password" />
+            <mat-icon matSuffix (click)="showpassword()">
+                {{ show ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <mat-error *ngIf="registerForm.get('user.password')?.invalid && registerForm.get('user.password')?.touched">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Your Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option value="admin">Admin</mat-option>
+                <mat-option value="teacher">Teacher</mat-option>
+                <mat-option value="student">Student</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('user.role')?.hasError('required')">
+                Role is required
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button type="submit" [disabled]="registerForm.invalid">
+        Submit
+    </button>
+</form>

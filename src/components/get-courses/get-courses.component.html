@@ -1,0 +1,39 @@
+@if(courses.length>0)
+{
+<h1>רשימת קורסים</h1>
+<mat-list>
+    @for(u of courses;track u.title)
+    {
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{u.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{u.description}}-תאור הקורס</p>
+        </mat-card-content>
+        <div class="icon-buttons">
+            @if(role=="teacher"){
+            <span class="icon" (click)="delete(u.id)">
+                <mat-icon color="primary">delete</mat-icon>
+            </span>
+            <span class="icon" (click)="editCourse(u)">
+                <mat-icon color="primary">edit</mat-icon>
+            </span>
+            }
+            @if(role=="student"){
+            <span class="icon" (click)="AddPerson(u)">
+                <mat-icon color="primary">person_add</mat-icon>
+            </span>
+            <span class="icon" (click)="deletePerson(u)">
+                <mat-icon color="primary">person_remove</mat-icon>
+            </span>
+            }
+            <span class="icon" (click)="showLesson(u)">
+                <mat-icon color="primary">book</mat-icon>
+            </span>
+        </div>
+    </mat-card>
+    <mat-divider></mat-divider>
+    }
+</mat-list>
+}
