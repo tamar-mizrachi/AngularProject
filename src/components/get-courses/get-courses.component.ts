@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GetCoursesService } from '../../services/get-course/get-courses.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { course } from '../../models/course';
 import { user } from '../../models/user';
@@ -16,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     MatIconModule,
     MatButtonModule,
-    RouterLink,
     HttpClientModule,
     MatCardModule,
     MatListModule,

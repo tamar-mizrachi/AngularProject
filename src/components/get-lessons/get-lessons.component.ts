@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { lesson } from '../../models/lesson';
 import { GetCoursesService } from '../../services/get-course/get-courses.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { course } from '../../models/course';
 import { catchError, of, tap } from 'rxjs';
 @Component({
@@ -19,7 +19,6 @@ import { catchError, of, tap } from 'rxjs';
   standalone: true,
   imports: [
     MatIconModule,
-    RouterLink,
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
